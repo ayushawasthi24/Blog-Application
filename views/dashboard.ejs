@@ -1,0 +1,53 @@
+<div class="row m-auto">
+    <div class="col m-auto">
+        <h1 class="mt-4">Dashboard</h1>
+        <p class="lead mb-3">Welcome <%= name %></p>
+    </div>
+    <div class="col m-auto">
+        <a href="/users/logout" class="btn btn-danger float-end">Logout</a>
+    </div>
+</div>
+
+
+<div class="row">
+    <h2 class="my-2">Your Previous Blogs</h2>
+    <% blog.forEach((blogitem) => { %>
+        <div class="col mx-2 my-2 p-2">
+            <div class="card" style="width: 18rem;">
+                <img src="/images/blog.png" class="card-img-top" alt="">
+                <div class="card-body">
+                <h5 class="card-title"><%- blogitem['title'] %></h5>
+                <p class="card-text"><%- blogitem['content'] %></p>
+                <a href="#" class="btn btn-primary">Read</a>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+
+
+<div class="container">
+    <h2 class="my-4">Write a new blog</h2>
+    <%- include ('./partials/messages') %>
+    <form action="/submit" method="POST">
+        <div class="form-floating">
+            <p>Author</p>
+            <input type="text" name="author" class="form-control mb-3" value="<%= name %>"" placeholder="<%= name %>"" readonly>
+            <p>Title of the blog:</p>
+            
+            <input type="text" name="title" class="form-control" placeholder="Title of the blog">
+            <p class="my-2">Blog Content: </p>
+            
+            <textarea name="content" class="form-control my-3" placeholder="Write the content of the blog here" id="floatingTextarea" style="height: 200px"></textarea>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="container my-3">
+    <span></span>
+</div>
+

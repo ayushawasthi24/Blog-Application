@@ -1,0 +1,32 @@
+<div class="row m-auto">
+    <div class="col m-auto">
+        <h1 class="mt-4">Welcome to the Blog Application</h1>
+    </div>
+    <div class="col m-auto">
+        <a href="/users/register" class="btn btn-primary float-end mx-2">Register</a>
+        <a href="/users/login" class="btn btn-primary float-end mx-2">Login</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <h3>Recently published blogs : </h3>
+</div> 
+
+<div class="row">
+    <% blog.forEach((blogitem) => { %>
+        <div class="col mx-2 my-2 p-2">
+            <div class="card" style="width: 18rem;">
+                <img src="/images/blog.png" class="card-img-top" alt="">
+                <div class="card-body">
+                <h5 class="card-title"><%- blogitem['title'] %></h5>
+                <h6 class="card-subtitle mb-2 text-muted"><%- blogitem['author'] %></h6>
+                <p class="card-text"><%- blogitem['content'] %></p>
+                </div>
+            </div>
+        </div>
+    <% }) %>
+</div>
+
+<div class="container my5">
+
+</div>
